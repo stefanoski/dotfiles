@@ -1,7 +1,4 @@
 set nocompatible
-source $VIMRUNTIME/vimrc_example.vim
-source $VIMRUNTIME/mswin.vim
-behave mswin
 
 set diffexpr=MyDiff()
 function MyDiff()
@@ -29,6 +26,12 @@ function MyDiff()
 endfunction
 
 "==============================================================================
+" use boundles config
+if filereadable(expand("~/.vimrc.bundles"))
+    source ~/.vimrc.bundles
+endif
+
+" set leader key
 let mapleader = ","
 
 " Color scheme, font, initial window size, toolbar
