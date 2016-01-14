@@ -1,0 +1,47 @@
+" vim: set sw=4 ts=4 sts=4 et tw=78 foldmarker={,} foldlevel=9 foldmethod=marker:
+
+" Environment {
+
+    " Basics {
+        set nocompatible        " Must be first line
+    " }
+
+    " Setup Bundle Support {
+        " The next three lines ensure that the ~/.vim/bundle/ system works
+        filetype off
+        set rtp+=~/.vim/bundle/Vundle.vim
+        call vundle#begin()
+    " }
+
+" }
+
+" Bundles {
+
+    Plugin 'scrooloose/nerdtree'
+    Plugin 'nathanaelkane/vim-indent-guides'
+    Plugin 'Valloric/YouCompleteMe'
+    Plugin 'SirVer/ultisnips'
+    Plugin 'setine/vim-snippets'
+    Plugin 'bling/vim-airline'
+    Plugin 'vim-scripts/a.vim'
+    Plugin 'ctrlpvim/ctrlp.vim'
+    Plugin 'jamessan/vim-gnupg'
+    Plugin 'tpope/vim-surround'
+    Plugin 'tpope/vim-repeat'
+    Plugin 'tpope/vim-dispatch'
+    Plugin 'octol/vim-cpp-enhanced-highlight'
+    "Plugin 'matchit.zip'
+    "Plugin 'mbbill/undotree'
+    "Plugin 'Lokaltog/vim-easymotion'
+    "Plugin 'tpope/vim-fugitive'
+    "
+    "Plugin 'tacahiroy/ctrlp-funky'
+    if executable('ctags')
+        Plugin 'majutsushi/tagbar'
+    endif
+
+" }
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
