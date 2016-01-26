@@ -18,27 +18,27 @@
 " Bundles {
 
     Plugin 'scrooloose/nerdtree'
-    Plugin 'nathanaelkane/vim-indent-guides'
     Plugin 'Valloric/YouCompleteMe'
-    Plugin 'SirVer/ultisnips'
-    Plugin 'setine/vim-snippets'
-    Plugin 'bling/vim-airline'
-    Plugin 'vim-scripts/a.vim'
-    Plugin 'ctrlpvim/ctrlp.vim'
-    Plugin 'jamessan/vim-gnupg'
-    Plugin 'tpope/vim-surround'
-    Plugin 'tpope/vim-repeat'
-    Plugin 'tpope/vim-dispatch'
     Plugin 'octol/vim-cpp-enhanced-highlight'
+    Plugin 'ctrlpvim/ctrlp.vim'
+    Plugin 'bling/vim-airline'
+    if executable('ctags')
+        Plugin 'majutsushi/tagbar'
+    endif
+"    Plugin 'nathanaelkane/vim-indent-guides'
+"    Plugin 'SirVer/ultisnips'
+"    Plugin 'setine/vim-snippets'
+"    Plugin 'vim-scripts/a.vim'
+"    Plugin 'amessan/vim-gnupg'
+"    Plugin 'tpope/vim-surround'
+"    Plugin 'tpope/vim-repeat'
+"    Plugin 'tpope/vim-dispatch'
     "Plugin 'matchit.zip'
     "Plugin 'mbbill/undotree'
     "Plugin 'Lokaltog/vim-easymotion'
     "Plugin 'tpope/vim-fugitive'
     "
     "Plugin 'tacahiroy/ctrlp-funky'
-    if executable('ctags')
-        Plugin 'majutsushi/tagbar'
-    endif
 
 " }
 

@@ -114,3 +114,9 @@ fi
 
 # add the opt aliases
 [ -e /opt/optaliases.sh ] && . /opt/optaliases.sh
+
+
+# === my definitions ===
+export LIB_UF_LOCAL_INSTALL_PREFIX=/home/stefanos/.local
+export PATH=$PATH:$LIB_UF_LOCAL_INSTALL_PREFIX/bin
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$LIB_UF_LOCAL_INSTALL_PREFIX/lib

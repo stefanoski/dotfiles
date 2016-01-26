@@ -34,6 +34,11 @@ endif
 " set leader key
 let mapleader = ","
 
+" Fix color problem of mate-terminal
+if $COLORTERM == 'mate-terminal'
+      set t_Co=256
+endif
+
 " Color scheme, font, initial window size, toolbar
 if has("gui_running")
     if has("gui_win32")
@@ -75,6 +80,7 @@ set laststatus=2
 "set relativenumber
 set number
 set undofile
+set mouse=a
 
 " Search/Moving settings
 nnoremap / /\v
@@ -93,7 +99,7 @@ vnoremap <tab> %
 set nowrap
 set textwidth=79
 set formatoptions=qrn1
-set colorcolumn=80
+"set colorcolumn=80
 
 " Toggle vizualization of special symbols
 nnoremap <leader>r :call ShowSpecialSymbols()<cr>
@@ -106,8 +112,34 @@ function! ShowSpecialSymbols()
     set listchars=tab:▸\ ,eol:¬,trail:·
 endfunction
 
+" ***  Mappings ***
+
 " Map loading of vimrc file
 nnoremap <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<cr>
 
 " Center screen around cursor with SPACE
 nmap <space> zz
+
+" Exit insert mode with jj
+imap jj <esc>
+
+" Easy buffer switching
+nnoremap <F5> :buffers<CR>:buffer<Space> 
+
+" Toggle Tagbar
+nmap <F8> :TagbarToggle<CR>
+
+" Search tag list quickly with CtrlP
+nnoremap <leader>. :CtrlPTag<CR>
+
+
+" Add ctags support 
+" build tags of own projects with Ctrl-F12
+map <C-F12> :!ctags -R --sort=yes --c++-kinds=+p --fields=+iaS --extra=+q . <CR>
+
+" additional tag files 
+set tags+=~/.vim/tags/tags_uf
+set tags+=~/.vim/tags/tags_bm_sdk
+"set tags+=~/.vim/tags/tags_gl
+"set tags+=~/.vim/tags/tags_cv24
+set tags+=~/.vim/tags/tags_cv30
