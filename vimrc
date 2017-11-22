@@ -1,29 +1,6 @@
 set nocompatible
 
 set diffexpr=MyDiff()
-function MyDiff()
-  let opt = '-a --binary '
-  if &diffopt =~ 'icase' | let opt = opt . '-i ' | endif
-  if &diffopt =~ 'iwhite' | let opt = opt . '-b ' | endif
-  let arg1 = v:fname_in
-  if arg1 =~ ' ' | let arg1 = '"' . arg1 . '"' | endif
-  let arg2 = v:fname_new
-  if arg2 =~ ' ' | let arg2 = '"' . arg2 . '"' | endif
-  let arg3 = v:fname_out
-  if arg3 =~ ' ' | let arg3 = '"' . arg3 . '"' | endif
-  let eq = ''
-  if $VIMRUNTIME =~ ' '
-    if &sh =~ '\<cmd'
-      let cmd = '""' . $VIMRUNTIME . '\diff"'
-      let eq = '"'
-    else
-      let cmd = substitute($VIMRUNTIME, ' ', '" ', '') . '\diff"'
-    endif
-  else
-    let cmd = $VIMRUNTIME . '\diff'
-  endif
-  silent execute '!' . cmd . ' ' . opt . arg1 . ' ' . arg2 . ' > ' . arg3 . eq
-endfunction
 
 "==============================================================================
 " use boundles config
@@ -33,6 +10,17 @@ endif
 
 " set leader key
 let mapleader = ","
+
+" set path
+set path+=~/src/release-snapshots/common/include/**
+set path+=~/src/release-snapshots/common/src/**
+set path+=~/src/release-snapshots/framedistillery/**
+set path+=~/src/release-snapshots/libkeypoint/**
+set path+=~/src/release-snapshots/segmentation/**
+set path+=~/src/release-snapshots/slam/src/**
+set path+=~/src/release-snapshots/camoverlay/**
+set path+=~/src/release-snapshots/uniqui/applications/**
+" set path+=~/src/release-snapshots/sequences/**
 
 " Fix color problem of mate-terminal
 if $COLORTERM == 'mate-terminal'
@@ -69,8 +57,6 @@ set autoindent
 set showmode
 set showcmd
 set hidden
-set wildmenu
-set wildmode=list:longest
 set visualbell
 set cursorline
 set ttyfast
@@ -81,6 +67,17 @@ set laststatus=2
 set number
 set undofile
 set mouse=a
+highlight cursorline ctermbg=240 cterm=none
+
+" wild settings
+set wildmenu
+" set wildmode=list:longest,full
+set wildmode=longest:full,full
+set wildignore+=.*
+set wildignore+=*.o,*.obj,*.so,*.a
+set wildignore+=*.sw*,*~
+set wildignore+=*.png,*.jpg,*.gif
+set wildignore+=*.cmake
 
 " Search/Moving settings
 nnoremap / /\v
@@ -92,14 +89,12 @@ set incsearch
 set showmatch
 set hlsearch
 nnoremap <leader><space> :noh<cr>
-nnoremap <tab> %
-vnoremap <tab> %
 
 " Handle long lines
 set nowrap
-set textwidth=79
+set textwidth=95
 set formatoptions=qrn1
-"set colorcolumn=80
+set colorcolumn=95
 
 " Toggle vizualization of special symbols
 nnoremap <leader>r :call ShowSpecialSymbols()<cr>
@@ -116,6 +111,7 @@ endfunction
 
 " Map loading of vimrc file
 nnoremap <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<cr>
+nnoremap <leader>sv :source $MYVIMRC<cr>
 
 " Center screen around cursor with SPACE
 nmap <space> zz
@@ -131,15 +127,71 @@ nmap <F8> :TagbarToggle<CR>
 
 " Search tag list quickly with CtrlP
 nnoremap <leader>. :CtrlPTag<CR>
+noremap  <leader>p :CtrlP ~/src/release-snapshots/<CR>
 
 
 " Add ctags support 
 " build tags of own projects with Ctrl-F12
 map <C-F12> :!ctags -R --sort=yes --c++-kinds=+p --fields=+iaS --extra=+q . <CR>
 
-" additional tag files 
+" Additional tag files 
 set tags+=~/.vim/tags/tags_uf
 set tags+=~/.vim/tags/tags_bm_sdk
 "set tags+=~/.vim/tags/tags_gl
 "set tags+=~/.vim/tags/tags_cv24
 set tags+=~/.vim/tags/tags_cv30
+
+" Abbreviations
+function! Eatchar(pat)
+      let c = nr2char(getchar(0))
+      return (c =~ a:pat) ? '' : c
+endfunc
+iab ,f <C-R>=expand('%:t:r')<CR>
+iab #" #include ""<Left><C-R>=Eatchar('\s')<CR>
+iab #< #include <><Left><C-R>=Eatchar('\s')<CR>
+iab #> #include <><Left><C-R>=Eatchar('\s')<CR>
+iab once #pragma once
+" iab if if ()<Left><C-R>=Eatchar('\s')<CR>
+" iab for for ()<Left><C-R>=Eatchar('\s')<CR>
+" iab while while ()<Left><C-R>=Eatchar('\s')<CR>
+
+" C++ snippets
+nmap <leader>0 ma:0read ~/.vim/snippets/cr_notice.txt<CR>`a
+nmap <leader>9 ma:read ~/.vim/snippets/class_skeleton.h<CR>:'[,']s/_MY_CLASSNAME_/\=expand("%:t:r")<CR>g'[
+nmap <leader>8 k:read ~/.vim/snippets/doxy_comment.txt<CR>A
+autocmd BufNewFile *.c,*.cpp,*.h,*.hpp 0read /home/stefanos/.vim/snippets/cr_notice.txt
+
+
+" C++ loading .cpp/.h files
+nmap <leader>1 :find <C-R>=expand('%:t:r')<CR>.h<CR>
+nmap <leader>2 :find <C-R>=expand('%:t:r')<CR>.cpp<CR>
+
+
+" C++ formagin with clang
+noremap <leader>= :ClangFormat<CR><SPACE>
+let g:clang_format#style_options = {
+            \ "AccessModifierOffset" : -4,
+            \ "AllowShortBlocksOnASingleLine": "false",
+            \ "AllowShortFunctionsOnASingleLine": "Inline",
+            \ "AllowShortIfStatementsOnASingleLine" : "false",
+            \ "AllowShortLoopsOnASingleLine": "false",
+            \ "AlwaysBreakTemplateDeclarations" : "true",
+            \ "BasedOnStyle" : "LLVM",
+            \ "BinPackParameters" : "false",
+            \ "BreakBeforeBraces" : "Allman",
+            \ "BreakConstructorInitializersBeforeComma" : "true",
+            \ "ColumnLimit" : 95,
+            \ "DerivePointerAlignment" : "true",
+            \ "MaxEmptyLinesToKeep": 2,
+            \ "IndentWidth" : 4,
+            \ "Language" : "Cpp",
+            \ "PointerAlignment" : "Left",
+            \ "SpaceBeforeParens" : "ControlStatements",
+            \ "Standard" : "C++11",
+            \ "TabWidth" : 4}
+let g:clang_format#command="clang-format-3.5"
+
+" Syntax highlighting for (some file types)
+autocmd BufNewFile,BufRead *.jdef   set syntax=json
+autocmd BufNewFile,BufRead *.j2     set syntax=json
+autocmd BufNewFile,BufRead *.qml    set syntax=qml

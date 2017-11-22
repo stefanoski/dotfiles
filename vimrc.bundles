@@ -25,6 +25,9 @@
     if executable('ctags')
         Plugin 'majutsushi/tagbar'
     endif
+    Plugin 'tpope/vim-unimpaired'
+    Plugin 'tpope/vim-fugitive'
+    Plugin 'rhysd/vim-clang-format'
 "    Plugin 'nathanaelkane/vim-indent-guides'
 "    Plugin 'SirVer/ultisnips'
 "    Plugin 'setine/vim-snippets'
