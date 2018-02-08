@@ -18,7 +18,7 @@
 " Bundles {
 
     Plugin 'scrooloose/nerdtree'
-    Plugin 'Valloric/YouCompleteMe'
+"    Plugin 'Valloric/YouCompleteMe'
     Plugin 'octol/vim-cpp-enhanced-highlight'
     Plugin 'ctrlpvim/ctrlp.vim'
     Plugin 'bling/vim-airline'
