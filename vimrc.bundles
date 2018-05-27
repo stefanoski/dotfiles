@@ -33,7 +33,7 @@
 "    Plugin 'setine/vim-snippets'
 "    Plugin 'vim-scripts/a.vim'
 "    Plugin 'amessan/vim-gnupg'
-"    Plugin 'tpope/vim-surround'
+    "Plugin 'tpope/vim-surround'
     "Plugin 'tpope/vim-repeat'
     "Plugin 'tpope/vim-dispatch'
     "Plugin 'matchit.zip'
