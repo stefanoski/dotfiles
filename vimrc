@@ -12,15 +12,23 @@ endif
 let mapleader = ","
 
 " set path
-set path+=~/src/release-snapshots/common/include/**
-set path+=~/src/release-snapshots/common/src/**
-set path+=~/src/release-snapshots/framedistillery/**
-set path+=~/src/release-snapshots/libkeypoint/**
-set path+=~/src/release-snapshots/segmentation/**
-set path+=~/src/release-snapshots/slam/src/**
-set path+=~/src/release-snapshots/camoverlay/**
-set path+=~/src/release-snapshots/uniqui/applications/**
-" set path+=~/src/release-snapshots/sequences/**
+set path+=~/src/uniqfeed-all/camoverlay/include/**
+set path+=~/src/uniqfeed-all/camoverlay/src/**
+set path+=~/src/uniqfeed-all/camoverlay/tests/**
+set path+=~/src/uniqfeed-all/common/include/**
+set path+=~/src/uniqfeed-all/common/src/**
+set path+=~/src/uniqfeed-all/common/tests/**
+set path+=~/src/uniqfeed-all/framedistillery/
+set path+=~/src/uniqfeed-all/framedistillery/tests/**
+set path+=~/src/uniqfeed-all/libkeypoint/
+set path+=~/src/uniqfeed-all/libkeypoint/tests/**
+set path+=~/src/uniqfeed-all/segmentation/
+set path+=~/src/uniqfeed-all/segmentation/tests/**
+set path+=~/src/uniqfeed-all/slam/libraries/**
+set path+=~/src/uniqfeed-all/slam/tests/**
+set path+=~/src/uniqfeed-all/uniqui/applications/**
+set path+=~/src/uniqfeed-all/scripts/ansible/distributed-launcher/**
+" set path+=~/src/uniqfeed-all/sequences/**
 
 " Fix color problem of mate-terminal
 if $COLORTERM == 'mate-terminal'
@@ -125,21 +133,14 @@ nnoremap <F5> :buffers<CR>:buffer<Space>
 " Toggle Tagbar
 nmap <F8> :TagbarToggle<CR>
 
-" Search tag list quickly with CtrlP
-nnoremap <leader>. :CtrlPTag<CR>
-noremap  <leader>p :CtrlP ~/src/release-snapshots/<CR>
-
-
 " Add ctags support 
 " build tags of own projects with Ctrl-F12
 map <C-F12> :!ctags -R --sort=yes --c++-kinds=+p --fields=+iaS --extra=+q . <CR>
 
 " Additional tag files 
 set tags+=~/.vim/tags/tags_uf
-set tags+=~/.vim/tags/tags_bm_sdk
+"set tags+=~/.vim/tags/tags_bm_sdk
 "set tags+=~/.vim/tags/tags_gl
-"set tags+=~/.vim/tags/tags_cv24
-set tags+=~/.vim/tags/tags_cv30
 
 " Abbreviations
 function! Eatchar(pat)

@@ -134,7 +134,7 @@ fi
 unset color_prompt force_color_prompt
 
 # use_qt
-[ -e /opt/qt_5.8.inc ] && . /opt/qt_5.8.inc
+[ -e /opt/qt_5.8-deb9.inc ] && . /opt/qt_5.8-deb9.inc
 
 # use_python
 [ -e /opt/optaliases.sh ] && . /opt/optaliases.sh
