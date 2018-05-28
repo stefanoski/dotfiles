@@ -18,9 +18,7 @@
 " Bundles {
 
     Plugin 'scrooloose/nerdtree'
-    Plugin 'Valloric/YouCompleteMe'
     Plugin 'octol/vim-cpp-enhanced-highlight'
-    Plugin 'ctrlpvim/ctrlp.vim'
     Plugin 'bling/vim-airline'
     if executable('ctags')
         Plugin 'majutsushi/tagbar'
@@ -28,20 +26,21 @@
     Plugin 'tpope/vim-unimpaired'
     Plugin 'tpope/vim-fugitive'
     Plugin 'rhysd/vim-clang-format'
-"    Plugin 'nathanaelkane/vim-indent-guides'
-"    Plugin 'SirVer/ultisnips'
-"    Plugin 'setine/vim-snippets'
-"    Plugin 'vim-scripts/a.vim'
-"    Plugin 'amessan/vim-gnupg'
-"    Plugin 'tpope/vim-surround'
-"    Plugin 'tpope/vim-repeat'
-"    Plugin 'tpope/vim-dispatch'
+    Plugin 'jamessan/vim-gnupg'
+    "Plugin 'ctrlpvim/ctrlp.vim'
+    "Plugin 'nathanaelkane/vim-indent-guides'
+    "Plugin 'SirVer/ultisnips'
+    "Plugin 'setine/vim-snippets'
+    "Plugin 'vim-scripts/a.vim'
+    "Plugin 'amessan/vim-gnupg'
+    "Plugin 'tpope/vim-surround'
+    "Plugin 'tpope/vim-repeat'
+    "Plugin 'tpope/vim-dispatch'
     "Plugin 'matchit.zip'
     "Plugin 'mbbill/undotree'
     "Plugin 'Lokaltog/vim-easymotion'
-    "Plugin 'tpope/vim-fugitive'
-    "
     "Plugin 'tacahiroy/ctrlp-funky'
+    "Plugin 'Valloric/YouCompleteMe'
 
 " }
 
