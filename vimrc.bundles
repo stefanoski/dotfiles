@@ -18,6 +18,7 @@
 " Bundles {
 
     Plugin 'scrooloose/nerdtree'
+   "Plugin 'Valloric/YouCompleteMe'
     Plugin 'octol/vim-cpp-enhanced-highlight'
     Plugin 'bling/vim-airline'
     if executable('ctags')
