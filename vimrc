@@ -26,6 +26,11 @@ set path+=~/src/uniqfeed-all/segmentation/
 set path+=~/src/uniqfeed-all/segmentation/tests/**
 set path+=~/src/uniqfeed-all/slam/libraries/**
 set path+=~/src/uniqfeed-all/slam/tests/**
+set path+=~/src/uniqfeed-all/prefiner/include/**
+set path+=~/src/uniqfeed-all/prefiner/src/**
+set path+=~/src/uniqfeed-all/visapp/include/**
+set path+=~/src/uniqfeed-all/visapp/src/**
+set path+=~/src/uniqfeed-all/vulkan/**
 set path+=~/src/uniqfeed-all/uniqui/applications/**
 set path+=~/src/uniqfeed-all/scripts/ansible/distributed-launcher/**
 " set path+=~/src/uniqfeed-all/sequences/**
@@ -190,7 +195,7 @@ let g:clang_format#style_options = {
             \ "SpaceBeforeParens" : "ControlStatements",
             \ "Standard" : "C++11",
             \ "TabWidth" : 4}
-let g:clang_format#command="clang-format-3.5"
+let g:clang_format#command="clang-format-3.8"
 
 " Syntax highlighting for (some file types)
 autocmd BufNewFile,BufRead *.jdef   set syntax=json

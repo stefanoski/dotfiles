@@ -28,6 +28,7 @@
     Plugin 'tpope/vim-fugitive'
     Plugin 'rhysd/vim-clang-format'
     Plugin 'jamessan/vim-gnupg'
+    Plugin 'tikhomirov/vim-glsl'
     "Plugin 'ctrlpvim/ctrlp.vim'
     "Plugin 'nathanaelkane/vim-indent-guides'
     "Plugin 'SirVer/ultisnips'

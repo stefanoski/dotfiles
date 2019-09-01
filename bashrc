@@ -91,6 +91,8 @@ fi
 alias ll='ls -l'
 alias la='ls -A'
 alias l='ls -CF'
+alias cdmain="cd $HOME/src/uniqfeed-all"
+alias cdansible="cd $HOME/src/uniqfeed-all/scripts/ansible/distributed-launcher"
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
@@ -134,10 +136,7 @@ fi
 unset color_prompt force_color_prompt
 
 # use_qt
-[ -e /opt/qt_5.8-deb9.inc ] && . /opt/qt_5.8-deb9.inc
+#[ -e /opt/qt_5.8-deb9.inc ] && . /opt/qt_5.8-deb9.inc
 
 # use_python
 [ -e /opt/optaliases.sh ] && . /opt/optaliases.sh
-
-# use python testing scripts
-export PYTHONPATH=~/src/uniqfeed-all/scripts/python/
